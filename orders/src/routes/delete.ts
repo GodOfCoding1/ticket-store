@@ -3,7 +3,7 @@ import {
   requireAuth,
   NotFoundError,
   NotAuthorizedError,
-} from "@madhavtickets/common";
+} from "@cygnetops/common-v2";
 import { Order, OrderStatus } from "../models/order";
 import { OrderCancelledPublisher } from "../events/publishers/order-cancelled-publisher";
 import { natsWrapper } from "../nats-wrapper";
@@ -30,6 +30,7 @@ router.delete(
     // publishing an event saying this was cancelled!
     new OrderCancelledPublisher(natsWrapper.client).publish({
       id: order.id,
+      version: order.version,
       ticket: {
         id: order.ticket.id,
       },

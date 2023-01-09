@@ -6,7 +6,7 @@ import {
   NotFoundError,
   OrderStatus,
   BadRequestError,
-} from "@madhavtickets/common";
+} from "@cygnetops/common-v2";
 import { body } from "express-validator";
 import { Ticket } from "../models/ticket";
 import { Order } from "../models/order";
@@ -59,6 +59,7 @@ router.post(
     // Publish an event saying that an order was created
     new OrderCreatedPublisher(natsWrapper.client).publish({
       id: order.id,
+      version: order.version,
       status: order.status,
       userId: order.userId,
       expiresAt: order.expiresAt.toISOString(),
