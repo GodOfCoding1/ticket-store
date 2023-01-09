@@ -1,4 +1,4 @@
-import { Listener, OrderCancelledEvent, Subjects } from "@cygnetops/common-v2";
+import { Listener, OrderCancelledEvent, Subjects } from "@madhavtickets/common";
 import { Message } from "node-nats-streaming";
 import { queueGroupName } from "./queue-group-name";
 import { Ticket } from "../../models/ticket";

@@ -1,5 +1,5 @@
 import { Message } from "node-nats-streaming";
-import { Listener, OrderCreatedEvent, Subjects } from "@cygnetops/common-v2";
+import { Listener, OrderCreatedEvent, Subjects } from "@madhavtickets/common";
 import { queueGroupName } from "./queue-group-name";
 import { Ticket } from "../../models/ticket";
 import { TicketUpdatedPublisher } from "../publishers/ticket-updated-publisher";
